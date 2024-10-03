@@ -34,6 +34,8 @@ console.log(pets.pop()); /* Muestra el ultimo elemento y lo elimina */
 console.log(pets);
 console.log(pets.shift()); /* Muestra el primer elemento y lo elimina */
 console.log(pets);
+pets.unshift('Perro'); //Añade un espacio al principio con 'Perro'
+console.log(pets);
 
 function log(msj){
   console.log(msj);
@@ -58,8 +60,11 @@ console.log(months.reverse()); //Ordena al revés
 console.log(months.sort()); //Ordena alfanuméricamente
 
 //Partes de una palabra, frase, vectores, ... delimitados por un separador
-let cadena = 'Javascript es un lenguaje de programación';
+let cadena = 'Javascript es un lenguaje de programación. Javascript';
 let vector = '12,34,45,6,7,9';
+
+cadena = cadena.replace('Java','ECMA');
+console.log(cadena.replace('Java', 'ECMA')); //Reemplaza la primera ocurrencia
 
 let palabras = cadena.split(' ');
 let numeros = vector.split(',');

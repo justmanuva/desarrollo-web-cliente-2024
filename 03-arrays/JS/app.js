@@ -21,7 +21,7 @@ for (let i = 0; i < len; i++){
 }
 
 pets.push('rana','toro');
-console.log(pets[i]);
+// console.log(pets[i]);
 pets.push('loro');
 pets[2] = 'leon';
 pets[8] = 'zebra';
@@ -57,13 +57,22 @@ console.log(months);
 console.log(months.reverse()); //Ordena al revés
 console.log(months.sort()); //Ordena alfanuméricamente
 
-// Matrices
-let matriz = [];
-let i = prompt("Dime el tamaño de columna:");
+//Partes de una palabra, frase, vectores, ... delimitados por un separador
+let cadena = 'Javascript es un lenguaje de programación';
+let vector = '12,34,45,6,7,9';
 
-for (let j=0; j<i; j++){
-  matriz[j] = new Array(i);
-}
+let palabras = cadena.split(' ');
+let numeros = vector.split(',');
 
+console.log(palabras);
+console.log(numeros);
 
+//Búsqueda de una posición
+let posicion = months.indexOf('Jan');
+console.log(posicion);
 
+months.push('Apr');
+months.push('Jun');
+//Slice
+console.log(months.slice(2));
+console.log(months);

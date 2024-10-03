@@ -53,4 +53,11 @@ function Calculadora(){
     }
   } while (opvalida == false);
 }
-Calculadora();
+// Calculadora();
+
+function SumarVentana(){
+  let a = RecogerNum("Dime numero A: ");
+  let b = RecogerNum("Dime numero B: ");
+  
+  Sumar(a,b);
+}

@@ -55,6 +55,27 @@ function Calculadora(){
 }
 // Calculadora();
 
+function SumarDOM(a,b){
+  let c = Number(a) + Number(b);
+
+  //Opción DOM
+  let elem = document.getElementById("resultado");
+  let resultado = "La suma es: " + c;
+  
+  //Opción 1
+  console.log(resultado);
+  
+  //Opción 2
+  // alert(`La suma es: ${c}`)
+  
+  //Opción 3
+  document.write(resultado);
+
+  //Opción 3
+  // elem.innerHTML = resultado;
+
+}
+
 function SumarVentana(){
   let a = RecogerNum("Dime numero A: ");
   let b = RecogerNum("Dime numero B: ");

@@ -230,5 +230,24 @@ function Calculadora(){
 }
 Calculadora();
 
+// Número aleatorio < max
+function getRamdomInt(max){
+  return Math.floor(Math.random() * max);
+}
 
+// Número aleatorio entre el > min y < max
+function getRandomArbitrary(min,max){
+  return Math.random() * (max - min) + min;
+}
 
+//Número aleatorio entre el >= min y <= max
+function getRandomEnteros(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
+
+// Generar número aleatorio entre mínimo y máximo incluyendo extremos
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}

@@ -10,9 +10,6 @@ array2 = recogeNombres();
 function quitarIguales(array1, array2) {
   let arrayCorregido = [];
 
-  let maxLength = array2.length;
-  if (array1.length > array2.length) maxLength = array1.length;
-
   for (let i = 0; i < array1.length; i++) {
     let encontrado = false;
     for (let j = 0; j < array2.length; j++) {

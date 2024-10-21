@@ -4,15 +4,14 @@ function pedirNumero (){
   let maximo = 10;
   let numeros = 0;
   let contador = 0;
+  let continuar = true;
 
-  for (let i = 0; i < maximo; i++) {
-    if (numero == ".") i = maximo;
-    else {
-      numeros += numero;
-      contador++;
-    }  
-    
+  while (continuar) {
+    input = prompt
+    switch (true) {
+      case (input == ".") {
+        
+      }
+    }
   }
-  media = numeros/contador;
-  //SIN TERMINAR
 }

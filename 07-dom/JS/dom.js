@@ -68,8 +68,21 @@ function rojo (cabecera) {
 }
 
 //Vamos a modificar el Título 2 desde JS
-function cambioCabecera (elemento) {
+function cambioSubtitulo (elemento) {
   elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
 }
 
-let elemento = document.getElementById("subtitle");
+function cambioSubtitulo2() {
+  let elemento = document.getElementById("subtitle");
+  elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
+}
+//Llamo al evento "onclick" desde JS para cambiarle el color.
+document.getElementById("subtitle").onclick = cambioSubtitulo2;
+
+function cambioSubtitulo3() {
+  let elemento = document.getElementById("subtitle2");
+  elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
+}
+//Añado un listener para que cuando se haga "click" se ejecute la función "cambioSubtitulo3"
+let subtitulo2 = document.getElementById("subtitle2");
+subtitulo2.addEventListener("click", cambioSubtitulo3);

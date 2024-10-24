@@ -86,4 +86,4 @@ function cambioSubtitulo3() {
 //Añado un listener para que cuando se haga "click" se ejecute la función "cambioSubtitulo3"
 let subtitulo2 = document.getElementById("subtitle2");
 subtitulo2.addEventListener("click", cambioSubtitulo3);
->>>>>>> b3e89a1941e28d4820c423dfbe0d1aa49b150ac8
+

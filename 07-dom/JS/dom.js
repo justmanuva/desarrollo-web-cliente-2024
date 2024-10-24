@@ -72,4 +72,4 @@ function cambioCabecera (elemento) {
   elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
 }
 
-let elemento = document.getElementById("subtitle");
+let elemento = document.getElementById("subtitle");z

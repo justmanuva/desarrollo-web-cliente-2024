@@ -80,10 +80,10 @@ function cambioSubtitulo2() {
 document.getElementById("subtitle").onclick = cambioSubtitulo2;
 
 function cambioSubtitulo3() {
-  let elemento = document.getElementById("subtitle2");
+  let elemento = document.getElementById("H3title");
   elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
 }
 //Añado un listener para que cuando se haga "click" se ejecute la función "cambioSubtitulo3"
-let subtitulo2 = document.getElementById("subtitle2");
-subtitulo2.addEventListener("click", cambioSubtitulo3);
+let titleh3 = document.getElementById("H3title");
+titleh3.addEventListener("click", cambioSubtitulo3);
 

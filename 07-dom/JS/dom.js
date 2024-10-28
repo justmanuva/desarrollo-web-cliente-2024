@@ -79,11 +79,37 @@ function cambioSubtitulo2() {
 //Llamo al evento "onclick" desde JS para cambiarle el color.
 document.getElementById("subtitle").onclick = cambioSubtitulo2;
 
+//Añado un listener para que cuando se haga "click" se ejecute la función "cambioSubtitulo3"
+let titleh3 = document.getElementById("H3title");
+titleh3.addEventListener("click", cambioSubtitulo3);
+titleh3.addEventListener("dblclick", cambioSubtitulo3);
+
 function cambioSubtitulo3() {
   let elemento = document.getElementById("H3title");
   elemento.style.color = (elemento.style.color === "orange") ? "pink" : "orange";
 }
-//Añado un listener para que cuando se haga "click" se ejecute la función "cambioSubtitulo3"
-let titleh3 = document.getElementById("H3title");
-titleh3.addEventListener("click", cambioSubtitulo3);
 
+//Cambiar clase a un elemento
+let c1 = document.getElementById("caja1");
+c1.addEventListener("click", cambioClase1);
+
+let c2 = document.getElementById("caja2");
+c2.addEventListener("click", cambioClase2);
+
+function cambioClase1 () {
+  if (c1.classList.contains("caja--negra")) {
+    c1.classList.remove("caja--negra");
+    c1.classList.add("caja--roja");
+  } else {
+    c1.classList.remove("caja--roja");
+    c1.classList.add("caja--negra");
+  }
+}
+function cambioClase2 () {
+  if (c2.classList.contains("caja--negra")) {
+    c2.classList.remove("caja--negra");
+    c2.classList.add("caja--roja");
+  } else {
+    c2.classList.replace("caja--roja", "caja--negra");
+  }
+}

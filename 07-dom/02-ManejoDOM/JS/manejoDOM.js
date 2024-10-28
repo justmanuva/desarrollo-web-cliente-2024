@@ -96,6 +96,7 @@ function reemplazoChild() {
   console.log(listItem);
 
   let nuevoItem = document.createElement("li");
+  // PREGUNTAR PROFE
   nuevoItem.innerHTML = '<a href="#">Productos</a>';
   console.log(nuevoItem);
   listItem.parentNode.replaceChild(nuevoItem, listItem);

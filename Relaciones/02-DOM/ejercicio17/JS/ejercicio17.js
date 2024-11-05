@@ -1,5 +1,5 @@
 let btnCorrer = document.getElementById("correr");
-btnCorrer.addEventListener("click", iniciarCarrera);
+btnCorrer.addEventListener("click", iniciarCarreraOptima);
 
 function calcularVelocidades() {
   let velocidades = [];
@@ -66,4 +66,35 @@ function iniciarCarrera() {
       clearInterval(timer);
     }
   }, 50); 
+}
+function iniciarCarreraOptima(){
+  // console.log("Estoy aquí");
+  let corredores = document.querySelectorAll("div");
+  corredores[0].style.left = "0px";
+  corredores[1].style.left = "0px";
+  corredores[2].style.left = "0px";
+  corredores[3].style.left = "0px";
+
+  let velocidades = [];
+  let timer;
+
+  let final = false;
+
+  timer = setInterval(function(){
+      // opción 2 velocidad variable en cada momento
+      velocidades = calcularVelocidades();
+      if (!final){
+          for (let i=0; i<4; i++){
+              corredores[i].style.left = parseInt(corredores[i].style.left) + velocidades[i] + "px";
+
+              if (parseInt(corredores[i].style.left)>=1080){
+                  final=true;
+                  alert("Ha ganado el corredor: " + (i+1));
+              }
+          }
+      }
+      else{
+          clearInterval(timer);
+      }
+  }, 100);
 }

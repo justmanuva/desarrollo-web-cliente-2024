@@ -81,10 +81,10 @@ function iniciarCarreraOptima(){
   let final = false;
 
   timer = setInterval(function(){
-      // opción 2 velocidad variable en cada momento
+      // Opción 2 velocidad variable en cada momento
       velocidades = calcularVelocidades();
       if (!final){
-          for (let i=0; i<4; i++){
+          for (let i = 0; i < 4; i++){
               corredores[i].style.left = parseInt(corredores[i].style.left) + velocidades[i] + "px";
 
               if (parseInt(corredores[i].style.left)>=1080){

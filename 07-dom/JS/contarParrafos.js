@@ -33,10 +33,10 @@ function contarEnlaces() {
   // a) Número de enlaces
   let numEnlaces = document.getElementsByTagName("a");
   console.log(numEnlaces);
-  info.innerHTML = "El número de enla   ces es: " + numEnlaces.length;
+  info.innerHTML = "El número de enlaces es: " + numEnlaces.length;
 
   // b) Dirección del penúltimo enlace
-  info.innerHTML += "<br>La direccin del penúltimo enlace es: " + numEnlaces[numEnlaces.length-2].href;
+  info.innerHTML += "<br>La dirección del penúltimo enlace es: " + numEnlaces[numEnlaces.length-2].href;
 
   // c) Indicar cuantos enlaces apuntan a la url: http://prueba/
   let contador = 0;

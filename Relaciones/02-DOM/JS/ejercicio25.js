@@ -88,5 +88,5 @@ function eliminarElem() {
   nuevoElem.classList.add("tarea");
   nuevoElem.textContent = "Nuevo elemento reemplazador";
   // Para reemplazar el elemento por el nuevo
-  primerElem.remove(nuevoElem);
+  primerElem.remove;
 }

@@ -78,14 +78,24 @@
 
       let nuevoBorder = prompt("Ingrese el nuevo border: ");
 
-      tabla.setAttribute("border", nuevoBorder);
-      console.log(tabla.getAttribute("border"));
+      tabla.style.border = `${nuevoBorder}px solid black`;
     }
 
     //FALTA CORREGIR
     // function cambiarAlineacion () {
     //   let tabla = document.querySelector("table");
+    //   let alineacion = tabla.style.margin;
 
+    //   if (alineacion === "auto") {
+    //     tabla.style.marginLeft = "auto";
+    //     tabla.style.marginRight = "0";
+    //   } else if (alineacion === "0px auto 0px 0px") {
+    //     tabla.style.marginLeft = "0";
+    //     tabla.style.marginRight = "auto";
+    //   } else if (alineacion === "auto 0px auto auto"){
+    //     alineacion = "auto";
+    //     tabla.style.marginLeft = "0";
+    //   }
       
     // }
   </script>

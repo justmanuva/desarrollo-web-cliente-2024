@@ -36,6 +36,7 @@ let imag = document.createElement("img");
     if (celda.style.width == "300px") {
       celda.appendChild(imag);
     } else {
+      celda.replaceChild(imag);
       switch (imag.src) {
         case "./img/foto1.jpg":
         imag.setAttribute("src", "./img/foto2.jpg");

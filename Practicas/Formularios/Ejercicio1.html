@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1</title>
+</head>
+<body>
+  <form>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" id="nombre"><br>
+    <label>Email:</label>
+    <input type="text" name="email" id="email"><br>
+    <label>Asunto:</label>
+    <select name="asunto" id="asunto">
+      <option value="pedir_informacion">Pedir información</option>
+      <option value="apuntarse_curso">Apuntarse en un curso</option>
+      <option value="otros">Otros</option>
+    </select><br>
+    <div id="contenedor"></div><br>
+  </form>
+
+  <script>
+    const asunto = document.getElementById("asunto");
+    asunto.addEventListener("change", () => {
+      
+      var contenedor = document.getElementById("contenedor");
+      contenedor.replaceChildren();
+
+      if (asunto.value == "apuntarse_curso") {        
+        let select = document.createElement("select");
+
+        let label = document.createElement("label");
+        label.innerText = "Curso:";
+
+        let optionDam = document.createElement("option");
+        optionDam.innerText = "DAM";
+        optionDam.value = "DAM"
+        let optionDaw = document.createElement("option");
+        optionDaw.innerText = "DAW";
+        optionDaw.value = "DAW";
+        let optionAsir = document.createElement("option");
+        optionAsir.innerText = "ASIR";
+        optionAsir.value = "ASIR";
+
+        select.appendChild(optionDam);
+        select.appendChild(optionDaw);
+        select.appendChild(optionAsir);
+
+        contenedor.appendChild(label);
+        contenedor.appendChild(select);
+      } else if (asunto.value == "otros") {
+        let label = document.createElement("label");
+        label.innerText = "Otra opción:";
+
+        let input = document.createElement("input");
+        input.setAttribute("type", "text");
+
+        contenedor.appendChild(label);
+        contenedor.appendChild(input);
+
+        input.addEventListener("change", () => {
+          if (input.value == "") {
+            alert("Error: Este campo es obligatorio");
+          } if (input.value.length < 10) {
+            alert("Error: mínimo 10 caracteres")
+          }
+        })
+      }
+    })
+  </script>
+</body>
+</html>

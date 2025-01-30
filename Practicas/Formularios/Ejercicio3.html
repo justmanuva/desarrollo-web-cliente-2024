@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3</title>
+  <style>
+    span {
+      color: red;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <form enctype="multipart/form-data">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre"><br>
+    <span id="error_nombre">El nombre es obligatorio y debe tener más de 2 caracteres</span><br><br>
+
+    <label for="apellido1">Primer apellido:</label>
+    <input type="text" name="apellido1" id="apellido1"><br>
+    <span id="error_apellido1">El primer apellido es obligatorio y debe tener más de 2 caracteres</span><br><br>
+
+    <label for="apellido2">Segundo apellido:</label>
+    <input type="text" name="apellido2" id="apellido2"><br>
+    <span id="error_apellido2">El segundo apellido debe tener más de 2 caracteres</span><br><br>
+
+    <label for="pasaporte">Pasaporte:</label>
+    <input type="file" name="pasaporte" id="pasaporte"><br>
+    <span id="error_pasaporte">El pasaporte es obligatorio y debe ser de tipo .pdf</span><br><br>
+
+    <label>Estado civil:</label><br>
+    <div id="estado_civil_div">
+      <input type="radio" name="estado_civil" id="casado">
+      <label for="casado">Casado</label><br>
+      <input type="radio" name="estado_civil" id="soltero">
+      <label for="soltero">Soltero</label><br>
+      <input type="radio" name="estado_civil" id="viudo">
+      <label for="viudo">Viudo</label><br>
+      <span id="error_estado_civil">El estado civil es obligatoio</span><br><br>
+    </div>
+
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" required pattern="/^[A-Za-z]   [A-Z]{2}[0,9]{2} [0,9]{4} [0,9]{4} [0,9]{2} [0,9]{6} [0,9]{4}$/"><br><br>
+
+    <label for="contrasenna">Contraseña:</label>
+    <input type="password" name="contrasenna" id="contrasenna"><br>
+    <span id="error_contrasenna">La contraseña es obligatoria y debe tener de 8 a 10 caracteres</span><br><br>
+
+    <label for="repite_contrasenna">Repite contraseña:</label>
+    <input type="text" name="repite_contrasenna" id="repite_contrasenna">
+    <input type="button" value="Mostrar" id="mostrar"><br>
+    <span id="error_repite_contrasenna">La repetición de la contraseña es obligatoria y tiene que ser igual que la contraseña</span><br><br>
+
+    <input type="button" value="Enviar" id="enviar">
+    <input type="button" value="Limpiar" id="limpiar">
+
+  </form>
+
+  <script>
+    const nombre = document.getElementById("nombre");
+    const nombreError = document.getElementById("error_nombre");
+
+    nombre.addEventListener("focusout", () => {
+      if (nombre.value == "" || nombre.value.length <= 2) {
+      nombreError.style.visibility = "visible";
+      } else nombreError.style.visibility = "hidden";
+    })
+    
+    const apellido1 = document.getElementById("apellido1");
+    const apellido1Error = document.getElementById("error_apellido1");
+
+    apellido1.addEventListener("focusout", () => {
+      if (apellido1.value == "" || apellido1.value.length <= 2) {
+      apellido1Error.style.visibility = "visible";
+      } else apellido1Error.style.visibility = "hidden";
+    })
+
+    const apellido2 = document.getElementById("apellido2");
+    const apellido2Error = document.getElementById("error_apellido2");
+
+    apellido2.addEventListener("focusout", () => {
+      if (apellido2.value.length <= 2) {
+      apellido2Error.style.visibility = "visible";
+      } else apellido2Error.style.visibility = "hidden";
+    })
+
+    const pasaporte = document.getElementById("pasaporte");
+    const pasaporteError = document.getElementById("error_pasaporte");
+
+    pasaporte.addEventListener("change", () => {
+      let extensiones = ["pdf"];
+      let extension = pasaporte.value.split(".")[1];
+
+      if (pasaporte.value == "" || !extensiones.includes(extension)) {
+        pasaporteError.style.visibility = "visible";
+      } else if (extensiones.includes(extension)) {
+        pasaporteError.style.visibility = "hidden";
+      }
+    })
+
+    // const estado_civil = document.getElement("estado_civil");
+    const casado = document.getElementById("casado");
+    const soltero = document.getElementById("soltero");
+    const viudo = document.getElementById("viudo");
+    // const estado_civilError = document.getElementById("error_estado_civil");
+
+    // estado_civil.addEventListener("change", () => {
+    //   if (!casado.checked && !soltero.checked && viudo.checked) {
+    //     estado_civilError.style.visibility = "visible";
+    //   } else estado_civilError.style.visibility = "hidden";
+    // }) 
+    
+
+
+    
+    const contrasenna = document.getElementById("contrasenna");
+    const contrasennaError = document.getElementById("error_contrasenna");
+
+    contrasenna.addEventListener("focusout", () => {
+      if (contrasenna.value == "" || contrasenna.value.length < 8 || contrasenna.value.length > 10) {
+        contrasennaError.style.visibility = "visible";
+      } else contrasennaError.style.visibility = "hidden";
+    })
+
+    const repite_contrasenna = document.getElementById("repite_contrasenna");
+    const repite_contrasennaError = document.getElementById("error_repite_contrasenna");
+
+    repite_contrasenna.addEventListener("focusout", () => {
+      if ((repite_contrasenna.value == "") || (repite_contrasenna.value != contrasenna.value) ) {
+        repite_contrasennaError.style.visibility = "visible";
+      } else repite_contrasennaError.style.visibility = "hidden";
+    })
+
+    const mostrar = document.getElementById("mostrar");
+    mostrar.addEventListener("click", () => {
+      contrasenna.setAttribute("type", "text");
+    })
+
+    const email = document.getElementById("email");
+    const enviar = document.getElementById("enviar");
+
+    var estado_civil
+    if (!casado.checked) {
+       estado_civil = "Casado";
+    }
+    else if (!soltero.checked) {
+      estado_civil = "Soltero";
+    } else if (!viudo.checked) estado_civil = "Viudo";
+    enviar.addEventListener("click", () => {
+      alert(
+        "Nombre: "+ nombre.value + "\n" +
+        "Primer apellido: "+ apellido1.value + "\n" +
+        "Segundo apellido: "+ apellido2.value + "\n" +
+        "Estado civil: "+ estado_civil + "\n" +
+        "Email: "+ email.value + "\n" +
+        "Contraseña: CENSURADO"
+      )
+    })
+
+    const limpiar = document.getElementById("limpiar");
+    limpiar.addEventListener("click", () => {
+      nombre.value = "";
+      apellido1.value = "";
+      apellido2.value = "";
+      pasaporte.value = "";
+      // estado_civil.value = "";
+      email.value = "";
+      contrasenna.value = "";
+      repite_contrasenna.value = "";
+
+      nombreError.style.visibility = "hidden";
+      apellido1Error.style.visibility = "hidden";
+      apellido2Error.style.visibility = "hidden";
+      pasaporteError.style.visibility = "hidden";
+      contrasennaError.style.visibility = "hidden";
+      repite_contrasennaError.style.visibility = "hidden";
+    })
+
+  </script>
+</body>
+</html>

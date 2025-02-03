@@ -36,7 +36,7 @@ function eliminar() {
     localStorage.setItem("usuario2", "Marta");
 }
 
-// Consultamos el nombre de la variable de sesión que hemos creado
+// Consultamos el nombre de la variable local que hemos creado
 function consultar() {
     let valor1 = localStorage.getItem("usuario1");
     let valor2 = localStorage.getItem("usuario2");
@@ -44,12 +44,12 @@ function consultar() {
 
 }
 
-// Modificar la sesión "usuario"
+// Modificar la local "usuario"
 function modificar() {
     localStorage.setItem("usuario1", "Mario 123");
 }
 
-// Borrar la sesión "usuario"
+// Borrar la cariable local "usuario"
 function eliminar() {
     localStorage.removeItem("usuario1");
     localStorage.removeItem("usuario2");
@@ -57,24 +57,20 @@ function eliminar() {
 
 // Cookies
 function crear() {
-    document.cookie = "usuario=Mario, expire=Thu, 6 Feb 2025 2025 12:00:00 UTC, path=/";
+    document.cookie = "usuario=Mario; expires=Thu, 6 Feb 2025 12:00:00 UTC; path=/";
 }
 
-// Consultamos el nombre de la variable de sesión que hemos creado
+// Consultamos el nombre de la cookie que hemos creado
 function consultar() {
-    let valor1 = localStorage.getItem("usuario1");
-    let valor2 = localStorage.getItem("usuario2");
-    document.getElementById("resultado").innerHTML = `La variable usuario tiene almacenado ${valor1} y la variable usuario2 tiene almacenado ${valor2}`;
-
+    document.getElementById("resultado").innerHTML = `Cookie: ${document.cookie}`; 
 }
 
-// Modificar la sesión "usuario"
+// Modificar la cookie (Solo se puede modificar la expiración)
 function modificar() {
-    localStorage.setItem("usuario1", "Mario 123");
+    document.cookie="usuario=Mario; expires=Fri, 7 Feb 2025 12:00:00 UTC; path=/";
 }
 
-// Borrar la sesión "usuario"
+// Borrar la cookie (Se cambia el expires a un día anterior para que caduque)
 function eliminar() {
-    localStorage.removeItem("usuario1");
-    localStorage.removeItem("usuario2");
+    document.cookie="usuario=Mario; expires Sun, 2 Feb 2025 12:00:00 UTC; path=/";
 }
